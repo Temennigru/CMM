@@ -2,3 +2,9 @@ CMM
 ===
 
 C-- library
+
+This library was created to help out people who use the C programming language by implementing a series of containers and exception handling.
+
+It is registered under the MIT free software copyright.
+To learn more about its use check out the wiki page
+http://en.wikipedia.org/wiki/MIT_License
