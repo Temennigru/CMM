@@ -118,7 +118,7 @@ void* HeapPop (Heap* heap) {
 	for (i = 0;;) {
 		// At most one child
 		if ( ( (i + 1) * 2) > heap->size) {
-			if ( ( (i + 1) * 2) - 1 == heap->size - 1 && heap->HeapCompare(heap->elementArray[i], heap->elementArray[( (i + 1) * 2) - 1]) ) {
+			if ( (i * 2) + 1 == heap->size - 1 && heap->HeapCompare(heap->elementArray[i], heap->elementArray[( (i + 1) * 2) - 1]) ) {
 				swap (&(heap->elementArray[i]), &(heap->elementArray[( (i + 1) * 2) - 1]) );
 			}
 			// No more children
@@ -126,9 +126,9 @@ void* HeapPop (Heap* heap) {
 		}
 		// Left is smaller and right is not smalled than left
 		else if (heap->HeapCompare (heap->elementArray[i], heap->elementArray[( (i + 1) * 2) - 1]) &&
-			!heap->HeapCompare (heap->elementArray[( (i + 1) * 2) - 1], heap->elementArray[(i + 1) * 2] ) ) {
-			swap ( (&heap->elementArray[i]), &(heap->elementArray[( (i + 1) * 2) - 1]) );
-			i = ( (i + 1) * 2) - 1;
+			!heap->HeapCompare (heap->elementArray[(i * 2) + 1], heap->elementArray[(i + 1) * 2] ) ) {
+			swap ( (&heap->elementArray[i]), &(heap->elementArray[(i * 2) + 1]) );
+			i = (i * 2) + 1;
 		// Right is smaller
 		} else if (heap->HeapCompare (heap->elementArray[i], heap->elementArray[(i + 1) * 2]) ) {
 			swap ( (&heap->elementArray[i]), &(heap->elementArray[(i + 1) * 2]) );
