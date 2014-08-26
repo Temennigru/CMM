@@ -13,4 +13,3 @@ http://en.wikipedia.org/wiki/MIT_License
 
 
 The relevant files are in the folder CMM.
-All the other files are xcode trash that are required because I am too lazy to sync the repo through the terminal.
