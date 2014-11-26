@@ -17,15 +17,6 @@ Bool DefaultHeapCompare (void* a, void* b) {
 	return a > b;
 }
 
-/* Method: HeapInit
- * Parameters:
- * heap - Pointer to the Heap to be initialized
- * Return value:
- * none
- * Description:
- * Creates an array of 100 pointers, sets max size to 100 and resets element counter.
- */
-
 void HeapInit (Heap* heap, Bool (* HeapCompare) (void*, void*) ) {
 	heap->mSize = 100;
 	heap->size = 0;
@@ -34,32 +25,12 @@ void HeapInit (Heap* heap, Bool (* HeapCompare) (void*, void*) ) {
 	else heap->HeapCompare = DefaultHeapCompare;
 }
 
-/* Method: HeapDelete
- * Parameters:
- * heap - Pointer to the Heap to be deleted
- * Return value:
- * none
- * Description:
- * Deletes the container in heap and sets max size to 0.
- */
-
 void HeapDelete (Heap* heap) {
 	heap->mSize = 0;
 	heap->size = 0;
 	free (heap->elementArray);
 	heap->elementArray = NULL; // To prevent another "delete then access" problem
 }
-
-/* Method: HeapPush
- * Parameters:
- * heap - Pointer to the Heap in which the element will be inserted
- * element  - Element to be inserted into the heap
- * Return value:
- * none
- * Description:
- * Checks if size excedes max size to reallocate if necessary, then inserts
- * element to the top of the heap.
- */
 
 void HeapPush (Heap* heap, void* element) {
 	if (heap->size == heap->mSize) {
@@ -77,16 +48,6 @@ void HeapPush (Heap* heap, void* element) {
 		}
 	}
 }
-
-/* Method: HeapPop
- * Parameters:
- * heap - Pointer to the Heap in which the element will be inserted
- * Return value:
- * Returns the popped node.
- * Description:
- * Pops the top of the heap and returns it. If the heap size passes
- * a maximum threshold of 50, the size is reduced.
- */
 
 void* HeapPop (Heap* heap) {
 
@@ -139,27 +100,9 @@ void* HeapPop (Heap* heap) {
 	return temp;
 }
 
-/* Method: HeapIsEmpty
- * Parameters:
- * heap - Pointer to the Heap to be checked
- * Return value:
- * Returns wether the heap has any elements in it.
- * Description:
- * Returns wether heap size is 0.
- */
-
 Bool HeapIsEmpty (Heap* heap) {
 	return (Bool) heap->size == 0;
 }
-
-/* Method: HeapSize
- * Parameters:
- * heap - Pointer to the Heap to be checked
- * Return value:
- * Returns the size of the heap.
- * Description:
- * Returns heap->size.
- */
 
 uintptr_t HeapSize (Heap* heap) {
 	return heap->size;

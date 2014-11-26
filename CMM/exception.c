@@ -19,19 +19,8 @@ const char* _ErrorMessage[] = {
 	"Error: The resource being freed was not locked."
 			   }; // Error code list
 
-
-/* Method: ThrowException
- * Parameters:
- * errCode - An enumerated argument to define what message will be printed on the screen.
- * ... - Any number of arguments to define the variables to be printed in the error message.
- * Return value:
- * none
- * Description:
- * Prints an error message on the screen and exits with a specified code.
- */
-
 void ThrowException (int errCode, ... ) {
-       	/* var length arg list function similar to printf() */
+    /* var length arg list function similar to printf() */
 	char *s;
 	float f;
 	unsigned int i,j;

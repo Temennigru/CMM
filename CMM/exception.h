@@ -37,10 +37,27 @@ extern Bool was_try__; // For checking for errors.
 
 extern const char* _ErrorMessage[]; // Error message array
 
-void ThrowException (int errCode, ... );
-void longjmperror(void);
-void SignalHandler (int signal);
-void longjmpsignalhandler (int signal);
-void longjmpthrow (jmp_buf state, int retvalue);
+/* How to use:
+ * THROW([Exception enum]) - Trows an exception with the colde
+ * Ex: TROW(SIGBUS_EXCEPTION);
+ *
+ * TRY/CATCH([Exception enum]) - Catches exceptions
+ * Ex: TRY
+ *         foo;
+ *     CATCH(GENERIC_EXCEPTION)
+ *         bar;
+ *     ETRY;
+ *
+ * FINALLY - Differently from most OOPLs, finally in CMM catches previously uncaught exceptions.
+ * Ex: TRY
+ *         foo;
+ *     CATCH(INDEX_OUT_OF_RANGE_EXCEPTION)
+ *         "caught index out of range exception";
+ *     FINALLY
+ *         "caught some other exception"
+ *     ETRY;
+ *
+ */
+
 
 #endif
