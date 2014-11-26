@@ -57,6 +57,8 @@ extern const char* _ErrorMessage[]; // Error message array
  *         "caught some other exception"
  *     ETRY;
  *
+ * WARNING: TROW(0) inside a try/catch block will cause the program to go into an infinite loop as
+ * 0 is the default value check for setjmp.
  */
 
 
