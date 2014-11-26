@@ -1,0 +1,5 @@
+*xcode*
+*.1
+*.o
+*.out
+*.orig
