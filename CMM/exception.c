@@ -35,10 +35,10 @@ void ThrowException (int errCode, ... ) {
 			j++;
 			if(_ErrorMessage[errCode - 1][j]=='d'){
 				i=va_arg(ap,int);
-				fprintf(stdin, "%d", i);
+				fprintf(stdout, "%d", i);
 			} else if(_ErrorMessage[errCode - 1][j]=='f'){
 				f=(float)va_arg(ap,double);
-				fprintf(stdin, "%f", f);
+				fprintf(stdout, "%f", f);
 			} else if(_ErrorMessage[errCode - 1][j]=='s'){
 				s=va_arg(ap,char*);
 				while(*s)

@@ -63,8 +63,14 @@ void longjmpthrow (jmp_buf state, int retvalue);
  *         "caught some other exception"
  *     ETRY;
  *
+ *
+ * To create a new exception, add a new define above and add an error message to exception.c
+ *
  * WARNING: TROW(0) inside a try/catch block will cause the program to go into an infinite loop as
  * 0 is the default value check for setjmp.
+ *
+ * WARNING: signal exceptions are not implemented
+ *
  */
 
 
