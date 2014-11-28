@@ -25,17 +25,23 @@ extern Bool was_try__; // For checking for errors.
 #define FILE_NOT_OPEN_EXCEPTION (7)
 #define NOT_ENOUGH_MEMORY_EXCEPTION (8)
 #define SEM_FREE_UNUSED_RESOURCE_EXCEPTION (9)
-#define SIGHUP_EXCEPTION (10)
-#define SIGINT_EXCEPTION (11)
-#define SIGILL_EXCEPTION (12)
-#define SIGABRT_EXCEPTION (13)
-#define SIGFPE_EXCEPTION (14)
-#define SIGBUS_EXCEPTION (15)
-#define SIGSEGV_EXCEPTION (16)
-#define SIGSYS_EXCEPTION (17)
-#define SIGTERM_EXCEPTION (18)
+#define SIGHUP_EXCEPTION (90)
+#define SIGINT_EXCEPTION (91)
+#define SIGILL_EXCEPTION (92)
+#define SIGABRT_EXCEPTION (93)
+#define SIGFPE_EXCEPTION (94)
+#define SIGBUS_EXCEPTION (95)
+#define SIGSEGV_EXCEPTION (96)
+#define SIGSYS_EXCEPTION (97)
+#define SIGTERM_EXCEPTION (98)
 
 extern const char* _ErrorMessage[]; // Error message array
+
+void ThrowException (int errCode, ... );
+void longjmperror(void);
+void SignalHandler (int signal);
+void longjmpsignalhandler (int signal);
+void longjmpthrow (jmp_buf state, int retvalue);
 
 /* How to use:
  * THROW([Exception enum]) - Trows an exception with the colde
